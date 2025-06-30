@@ -33,6 +33,8 @@ function contarTiempo() {
 			clearInterval(tiempoRegresivoId);
 			bloquearTarjetas();
 			loseAudio.play();
+			document.getElementById("mensaje").innerText = "¡Has perdido! 😢";
+			document.getElementById("reiniciar").style.display = "inline-block";
 		}
 	}, 1000);
 }
@@ -75,8 +77,10 @@ function destapar(id) {
 				clearInterval(tiempoRegresivoId);
 				mostrarAciertos.innerHTML = `Aciertos: ${aciertos}`;
 				mostrarMovimientos.innerHTML = `Movimientos: ${movimientos}`;
-				tiempoRestante.innerHTML = `Fantastico: ${timerInicial - timer} segundos`;
+				tiempoRestante.innerHTML = `Fantástico: ${timerInicial - timer} segundos tardaste en ganar`;
 				winAudio.play();
+				document.getElementById("mensaje").innerText = "¡Has ganado! 🎉";
+				document.getElementById("reiniciar").style.display = "inline-block";
 			}
 		} else {
 			setTimeout(() => {
